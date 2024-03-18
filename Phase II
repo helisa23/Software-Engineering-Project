@@ -1,0 +1,54 @@
+1.	Chosen Development Model: 
+Agile Methodology
+- Justification: Agile is chosen due to its flexibility and adaptability to changes in project requirements. Given the dynamic nature of web development and the need for iterative improvements based on user feedback, Agile will allow for continuous delivery and refinement of the website.
+2.	User Requirements:
+Stakeholders: Pet clinic
+End-users: Pet owners seeking vet services.
+Clients: Happy Paws Pet Clinic.
+Developers: Web development team at Happy Paws.
+Other relevant parties: Potential partners for integrations like payment gateways, and regulatory bodies.
+3.	User Stories:
+User Type: Pet Owner (End-user)
+  Requirement: As a pet owner, I want to be able to view the vet's profile and qualifications.
+  Benefit: Ensures trust and confidence in the vet's abilities.
+  User Type: Pet Owner (End-user)
+  Requirement: As a pet owner, I want a user-friendly interface to easily book vaccine appointments for my pet.
+  Benefit: Simplifies the reservation process, enhancing user experience.
+4.	Functional Requirements:
+ Brief Description:
+Users should be able to view vet profiles and qualifications.
+ Users should be able to book vaccine appointments for their pets.
+Admins should be able to manage vet profiles and appointment schedules.
+5.	Acceptance Criteria:
+Vet profiles and qualifications are displayed accurately.
+ Users can successfully book appointments and receive confirmation.
+ Admins can update vet profiles and manage appointment schedules.
+6.	Non-Functional Requirements:
+ Brief Description:
+The website should be user-friendly and intuitive.
+ It should be responsive and accessible on various devices.
+ Data security and privacy are paramount.
+7.	Acceptance Criteria:
+Users can navigate the website easily without confusion.
+ The website functions well on desktop, tablet, and mobile.
+ User data is encrypted, and authentication measures are implemented.
+8.	Application Specifications:
+Database Model:
+ Reservation-database/table name
+reservation_id
+pet_owner_name
+pet_name
+vet_id
+reservation_date
+reservation_time
+status
+
+
+Technologies Used
+Front-end: HTML, CSS, JavaScript
+Back-end: PHP
+Database: MySQL
+Other technologies: AJAX for asynchronous communication
+9.	User Interface Design:
+Utilize Bootstrap Studio for wireframes and mockups.
+ Ensure responsiveness and user-friendliness across devices.
