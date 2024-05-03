@@ -1,0 +1,175 @@
+Here are some written test case scenarios for each file in the provided HTML:
+
+HTML File Test Case Scenarios:
+
+Header and Navigation:
+1. Verify that the logo "PAW CARE" is displayed in the header.
+2. Test that the navigation menu contains the following items: "Services", "Book an appointment", and "About Us".
+3. Click on the "Services" dropdown menu and verify that it contains the options "Grooming" and "Medical Assistance".
+4. Click on the "Book an appointment" link in the navigation menu and ensure that it scrolls to the correct section on the page.
+5. Check that the "About Us" link in the navigation menu leads to the appropriate page or section.
+
+Hero Section:
+1. Confirm that the hero section displays the message "You know what we like about you? Your pet!".
+2. Click on the "Book a Service" button and verify that it redirects to the correct page.
+
+Services Section:
+1. Test that both "Dog Grooming" and "Medical Assistance" services are displayed.
+2. Click on the "Book Now" button for "Dog Grooming" and ensure it redirects to the correct page.
+3. Click on the "Book Now" button for "Medical Assistance" and ensure it redirects to the correct page.
+4. Verify that the prices for each service are displayed correctly.
+5. Check that the images for each service are loaded and displayed properly.
+
+Appointment Section:
+1. Ensure that the "Book an appointment" section displays the appropriate heading and description.
+2. Click on the "Appointment Application" button and verify that it redirects to the correct page or form.
+
+Footer:
+1. Verify that the footer displays the copyright message "© Paw care, All rights reserved".
+
+General:
+1. Test the functionality of the `redirectToPage()` function to ensure it redirects to the correct pages.
+2. Check that the page loads without any console errors.
+3. Test the behavior of the page when accessed with different screen sizes or devices to ensure responsiveness.
+
+These test case scenarios cover various aspects of the HTML file, including navigation, content, functionality, and responsiveness, ensuring that the web page behaves as expected across different scenarios.
+
+
+
+PHPUnit tests
+Form Validation Test
+
+<?php
+use PHPUnit\Framework\TestCase; 
+
+class FormValidationTest extends TestCase {
+    protected $formUrl;
+
+    protected function setUp(): void {
+        $this->formUrl = 'http://localhost/Pet-Website/app/process_form.php'; // Update with your form URL
+    }
+ 
+
+    // Test form submission with missing owner email
+    public function testMissingOwnerEmail() {
+        $postData = [
+            'appointment-type' => 'medical-appt',
+            'pet-type' => 'Dog',
+            'pet-name' => 'Buddy',
+            'owner-name' => 'John Doe',
+            'owner-number' => '1234567890',
+            'appointment-date' => '2024-05-01',
+            'appointment-time' => '14:00'
+        ];
+
+        $response = $this->submitForm($postData);
+
+        $this->assertStringContainsString('Email is required', $response);
+    }
+
+    // Test form submission with missing owner phone number
+    public function testMissingOwnerNumber() {
+        $postData = [
+            'appointment-type' => 'medical-appt',
+            'pet-type' => 'Dog',
+            'pet-name' => 'Buddy',
+            'owner-name' => 'John Doe',
+            'owner-email' => 'john@example.com',
+            'appointment-date' => '2024-05-01',
+            'appointment-time' => '14:00'
+        ];
+
+        $response = $this->submitForm($postData);
+
+        $this->assertStringContainsString('Phone number is required', $response);
+    }
+
+    public function testMissingPetType()
+    {
+        // Simulate form submission with missing pet type
+        $formData = [
+            'appointment-type' => 'medical-appt',
+            'pet-name' => 'Buddy',
+            'owner-name' => 'John Doe',
+            'owner-number' => '1234567890',
+            'owner-email' => 'john@example.com',
+            'appointment-date' => '2024-05-01',
+            'appointment-time' => '12:00',
+        ];
+
+        $response = $this->submitForm($formData);
+
+        // Assert that the response contains the expected error message
+        $this->assertStringContainsString('Pet type is required', $response);
+    }
+
+    public function testMissingPetName()
+    {
+        // Simulate form submission with missing pet name
+        $formData = [
+            'appointment-type' => 'medical-appt',
+            'pet-type' => 'Dog',
+            'owner-name' => 'John Doe',
+            'owner-number' => '1234567890',
+            'owner-email' => 'john@example.com',
+            'appointment-date' => '2024-05-01',
+            'appointment-time' => '12:00',
+        ];
+
+        $response = $this->submitForm($formData);
+
+        // Assert that the response contains the expected error message
+        $this->assertStringContainsString('Pet name is required', $response);
+    }
+
+    public function testMissingOwnerName()
+    {
+        // Simulate form submission with missing owner name
+        $formData = [
+            'appointment-type' => 'medical-appt',
+            'pet-type' => 'Dog',
+            'pet-name' => 'Buddy',
+            'owner-number' => '1234567890',
+            'owner-email' => 'john@example.com',
+            'appointment-date' => '2024-05-01',
+            'appointment-time' => '12:00',
+        ];
+
+        $response = $this->submitForm($formData);
+
+        // Assert that the response contains the expected error message
+        $this->assertStringContainsString('Owner name is required', $response);
+    } 
+ 
+
+    // Function to simulate form submission and return response
+    protected function submitForm($postData) {
+        $ch = curl_init($this->formUrl);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $postData);
+        $response = curl_exec($ch);
+        curl_close($ch);
+        return $response;
+    }
+}
+
+Process form test
+<?php
+use PHPUnit\Framework\TestCase; 
+
+include 'app/process_form.php';
+
+class ProcessFormTest extends TestCase {
+
+    // Test database connection
+    public function testDatabaseConnection() {
+        $servername = "localhost";
+        $username = "root";
+        $password = "12345678";
+        $dbname = "pet_care_vet";
+        $conn = new mysqli($servername, $username, $password, $dbname);
+        $this->assertTrue($conn->connect_error === null);
+    }
+
+}
