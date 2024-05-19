@@ -1,0 +1,35 @@
+Here are some written test case scenarios for each file in the provided HTML:
+
+HTML File Test Case Scenarios:
+
+Header and Navigation:
+1. Verify that the logo "PAW CARE" is displayed in the header.
+2. Test that the navigation menu contains the following items: "Services", "Book an appointment", and "About Us".
+3. Click on the "Services" dropdown menu and verify that it contains the options "Grooming" and "Medical Assistance".
+4. Click on the "Book an appointment" link in the navigation menu and ensure that it scrolls to the correct section on the page.
+5. Check that the "About Us" link in the navigation menu leads to the appropriate page or section.
+
+Hero Section:
+1. Confirm that the hero section displays the message "You know what we like about you? Your pet!".
+2. Click on the "Book a Service" button and verify that it redirects to the correct page.
+
+Services Section:
+1. Test that both "Dog Grooming" and "Medical Assistance" services are displayed.
+2. Click on the "Book Now" button for "Dog Grooming" and ensure it redirects to the correct page.
+3. Click on the "Book Now" button for "Medical Assistance" and ensure it redirects to the correct page.
+4. Verify that the prices for each service are displayed correctly.
+5. Check that the images for each service are loaded and displayed properly.
+
+Appointment Section:
+1. Ensure that the "Book an appointment" section displays the appropriate heading and description.
+2. Click on the "Appointment Application" button and verify that it redirects to the correct page or form.
+
+Footer:
+1. Verify that the footer displays the copyright message "© Paw care, All rights reserved".
+
+General:
+1. Test the functionality of the `redirectToPage()` function to ensure it redirects to the correct pages.
+2. Check that the page loads without any console errors.
+3. Test the behavior of the page when accessed with different screen sizes or devices to ensure responsiveness.
+
+These test case scenarios cover various aspects of the HTML file, including navigation, content, functionality, and responsiveness, ensuring that the web page behaves as expected across different scenarios.
