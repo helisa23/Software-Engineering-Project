@@ -98,7 +98,7 @@
 
         <div>
             <h2>Book an appointment</h2>
-            <p>Our knowledgeable and friendly staff is always ready to assist you in making the best choices for your pawsome friends.</p>
+            <p>Our knowledgeable,certified in 2012 and  friendly staff is always ready to assist you in making the best choices for your pawsome friends.</p>
             <div class="btn-group">
                 <button class="btn-filled-dark" onclick="redirectToPage()"><span class="material-symbols-outlined">
  
