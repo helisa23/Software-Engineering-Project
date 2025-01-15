@@ -1,0 +1,73 @@
+•	Software design and modeling
+Group name: Pet Care Vet 
+     Software Architecture
+ 	System Architecture
+1.	Client Interface: 
+a.	This component represents the front-end interface accessible to users (pet owners) and admins.
+b.	It includes user interfaces for viewing vet profiles, booking vaccine appointments, and managing vet profiles and appointment schedules (for admins).
+c.	Technologies: HTML, CSS, JavaScript
+2.	User Management Microservice:
+a.	Manages user authentication, registration, and authorization.
+b.	Stores user data and authentication tokens.
+c.	Technologies: Node.js, Express.js, MongoDB or PostgreSQL for data storage.
+
+
+
+3.	Vet Profile Microservice:
+a.	Handles vet profiles, including creation, retrieval, updating, and deletion.
+b.	Stores vet profile data and qualifications.
+c.	Technologies: Node.js, Express.js, MongoDB, or PostgreSQL for data storage.
+4.	Appointment Management Microservice:
+a.	Manages vaccine appointment scheduling.
+b.	Allows users to book, reschedule, and cancel appointments.
+c.	Notifies users and vets about upcoming appointments.
+d.	Technologies: Node.js, Express.js, MongoDB or PostgreSQL for data storage.
+5.	Admin Panel:
+a.	Provides interfaces for admin users to manage vet profiles and appointment schedules.
+b.	Allows admins to add, edit, or remove vet profiles and appointments.
+c.	Technologies: HTML, CSS, JavaScript, back-end APIs for data manipulation.
+
+
+6.	Database:
+a.	Stores all application data, including user information, vet profiles, appointment schedules, etc.
+b.	Technologies:  MySQL, XAMPP
+ 	Component diagram
+Sequence Diagram
+ 
+1. The client interface sends a request to view vet profiles.
+2. The user management microservice receives the request and authenticates the user.
+3. Upon successful authentication, the user management microservice requests the vet profile microservice to retrieve the vet profile data.
+4. The vet profile microservice processes the request and sends back the vet profile data to the user management microservice.
+5. The client interface displays the vet profile to the user.
+6. The user requests to book an appointment.
+7. The user management microservice checks the availability of the vet for appointments.
+8. The appointment management microservice retrieves available slots for the vet.
+9. Upon selecting a slot, the appointment management microservice books the appointment.
+10. The appointment management microservice confirms the booking.
+11. The client interface displays a confirmation message to the user.
+
+Database Design:
+Table: Reservation
+id (Primary Key): Unique identifier for each appointment.
+pet_owner_name: Name of the pet owner booking the appointment.
+vet_id: References the unique identifier of the vet assigned to the appointment.
+reservation date: Date of the appointment reservation.
+reservation_time: Time of the appointment reservation.
+status: Indicates the status of the appointment (e.g., confirmed, pending, canceled).
+
+This design ensures that data is organized efficiently with minimal redundancy. Each appointment is uniquely identified by its ID, and the table captures all relevant details related to the appointment, including the pet owner's name, the assigned vet, reservation date and time, and appointment status.
+
+
+
+
+
+
+
+ 	Modeling
+ 
+In this activity diagram:
+- The process starts with the user initiating the appointment booking.
+- The user views vet profiles and selects a vet profile.
+- The user books an appointment with the selected vet.
+- The system confirms the appointment.
+- Finally, the appointment booking process ends.

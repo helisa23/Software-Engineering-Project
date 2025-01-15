@@ -1,10 +1,14 @@
 {
     "require-dev": {
+<<<<<<< HEAD
         "phpunit/phpunit": "^11.1"
     },
     "autoload": {
         "psr-4": {
             "App\\": "app/"
         }
+=======
+        "phpunit/phpunit": "^9.6"
+>>>>>>> 410127e3c97f9a2d518ce1f457935c74ee797742
     }
 }
